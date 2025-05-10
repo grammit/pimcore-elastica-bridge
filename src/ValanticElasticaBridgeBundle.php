@@ -11,14 +11,8 @@ class ValanticElasticaBridgeBundle extends AbstractPimcoreBundle
 {
     use PackageVersionTrait;
 
-    protected function getComposerPackageName(): string
+    public function getPath(): string
     {
-        $composer = file_get_contents(__DIR__ . '/../composer.json');
-
-        if ($composer === false) {
-            throw new \RuntimeException();
-        }
-
-        return json_decode($composer, null, 512, \JSON_THROW_ON_ERROR)->name;
+        return \dirname(__DIR__);
     }
 }

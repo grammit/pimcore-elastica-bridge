@@ -5,4 +5,3 @@ framework:
       elastica_bridge_index: 'doctrine://default?queue_name=elastica_bridge_index'
     routing:
       Valantic\ElasticaBridgeBundle\Messenger\Message\RefreshElement: elastica_bridge_index
-      Valantic\ElasticaBridgeBundle\Messenger\Message\RefreshElementInIndex: elastica_bridge_index

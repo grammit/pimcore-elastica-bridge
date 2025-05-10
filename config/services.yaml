@@ -5,7 +5,7 @@ services:
     public: false
 
   Valantic\ElasticaBridgeBundle\Command\:
-    resource: '../../Command/*'
+    resource: '../src/Command/*'
     tags: [ 'console.command' ]
 
   Valantic\ElasticaBridgeBundle\Elastica\Client\ElasticsearchClientFactory: ~
@@ -14,10 +14,10 @@ services:
     factory: '@Valantic\ElasticaBridgeBundle\Elastica\Client\ElasticsearchClientFactory'
 
   Valantic\ElasticaBridgeBundle\Service\:
-    resource: '../../Service/*'
+    resource: '../src/Service/*'
 
   Valantic\ElasticaBridgeBundle\EventListener\:
-    resource: '../../EventListener/*'
+    resource: '../src/EventListener/*'
 
   Valantic\ElasticaBridgeBundle\Repository\ConfigurationRepository:
 
@@ -30,6 +30,4 @@ services:
       - !tagged_iterator valantic.elastica_bridge.document
 
   Valantic\ElasticaBridgeBundle\Messenger\Handler\:
-    resource: '../../Messenger/Handler/*'
-    tags:
-      - { name: messenger.message_handler }
+    resource: '../src/Messenger/Handler/*'

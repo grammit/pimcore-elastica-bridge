@@ -1,0 +1,3 @@
+valantic_elastica_bridge:
+    client:
+        dsn: '%env(OPEN_SEARCH_URL)%'

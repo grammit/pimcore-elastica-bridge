@@ -1,0 +1,15 @@
+doctrine:
+    dbal:
+        connections:
+            default:
+                server_version: "10.11.6-MariaDB"
+                url: '%env(DATABASE_URL)%'
+                mapping_types:
+                    enum: string
+                    bit: boolean
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        entity_managers:
+            default:
+                connection: default
+                auto_mapping: true

@@ -1,0 +1,16 @@
+#parameters:
+#    pimcore.encryption.secret: 'def00000fc1e34a17a03e2ef85329325b0736a5941633f8062f6b0a1a20f416751af119256bea0abf83ac33ef656b3fff087e1ce71fa6b8810d7f854fe2781f3fe4507f6'
+
+pimcore:
+    general:
+        disable_usage_statistics: true
+    full_page_cache:
+        enabled: false
+    config_location:
+        system_settings:
+            write_target:
+                type: 'symfony-config'
+                options:
+                    directory: '%kernel.project_dir%/config/system_settings'
+            read_target:
+                type: 'symfony-config'

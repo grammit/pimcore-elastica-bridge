@@ -1,0 +1,14 @@
+parameters:
+    secret: ThisTokenIsNotSecret
+
+framework:
+    csrf_protection: ~
+    secret: "%secret%"
+    session:
+        gc_probability: 0
+        storage_factory_id: session.storage.factory.native
+
+    mailer:
+        transports:
+            main: null://null
+            pimcore_newsletter: null://null

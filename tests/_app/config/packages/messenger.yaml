@@ -1,0 +1,4 @@
+framework:
+  messenger:
+    transports:
+      elastica_bridge_index: test://

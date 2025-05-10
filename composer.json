@@ -18,10 +18,16 @@
     "phpstan/phpstan": "^1.12.25",
     "phpstan/phpstan-deprecation-rules": "^1.2.1",
     "phpstan/phpstan-strict-rules": "^1.6.2",
+    "phpunit/phpunit": "^11.5.19",
+    "pimcore/admin-ui-classic-bundle": "^1.7",
     "rector/rector": "^1.2.10",
     "roave/security-advisories": "dev-latest",
     "sentry/sentry": "^4.11.0",
-    "symfony/http-client": "^6.4.19"
+    "symfony/http-client": "^6.4.19",
+    "symfony/phpunit-bridge": "^6.4.16",
+    "zenstruck/console-test": "^1.7",
+    "zenstruck/foundry": "^2.4.3",
+    "zenstruck/messenger-test": "^1.11"
   },
   "license": "MIT",
   "authors": [
@@ -41,8 +47,10 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "App\\": "docs/example/src/",
-      "Pimcore\\Model\\DataObject\\": "docs/example/var/classes/DataObject/"
+      "Pimcore\\Model\\DataObject\\": "tests/_app/var/classes/DataObject",
+      "App\\": "tests/_app/src",
+      "Valantic\\ElasticaBridgeBundle\\Tests\\": "tests/_files",
+      "Valantic\\ElasticaBridgeBundle\\Tests\\Unit\\": "tests/Unit"
     }
   },
   "extra": {

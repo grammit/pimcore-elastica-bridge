@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         backupGlobals="false"
+         colors="true"
+         bootstrap="tests/bootstrap.php"
+         cacheDirectory="tests/_app/var/.phpunit.cache"
+>
+    <php>
+        <ini name="display_errors" value="1"/>
+        <ini name="error_reporting" value="-1"/>
+        <env name="KERNEL_CLASS" value="Valantic\ElasticaBridgeBundle\Tests\TestKernel"/>
+        <env name="PIMCORE_KERNEL_CLASS" value="Valantic\ElasticaBridgeBundle\Tests\TestKernel"/>
+
+        <!-- With the PIMCORE_DEV_MODE option, the js files are not minified.-->
+        <env name="PIMCORE_DEV_MODE" value="true"/>
+
+        <server name="BROWSER_SOURCE_DIR" value="./tests/_app/var/browser/source"/>
+
+        <env name="APP_ENV" value="test" force="true"/>
+        <env name="APP_DEBUG" value="false" force="true"/>
+        <env name="DATABASE_URL" value="mysql://db:db@db:3306/test"/>
+        <env name="OPEN_SEARCH_URL" value="http://opensearch-test:9200"/>
+        <env name="PIMCORE_CLASS_DEFINITION_DIRECTORY" value="./tests/_app/config/classes"/>
+
+<!--        <env name="SYMFONY_DEPRECATIONS_HELPER" value="999999" />-->
+<!--        <env name="SYMFONY_DEPRECATIONS_HELPER" value="disabled" />-->
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="max[self]=0&amp;max[direct]=1&amp;quiet[]=indirect&amp;quiet[]=other" />
+
+        <server name="SHELL_VERBOSITY" value="-1"/>
+        <server name="SYMFONY_PHPUNIT_REMOVE" value=""/>
+        <server name="SYMFONY_PHPUNIT_VERSION" value="10.5"/>
+
+    </php>
+
+    <testsuites>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
+        </testsuite>
+    </testsuites>
+
+<!--    <coverage>-->
+<!--        <report>-->
+<!--            <html outputDirectory=".reports/coverage" lowUpperBound="25" highLowerBound="80"/>-->
+<!--            <text outputFile="php://stdout" showUncoveredFiles="false" showOnlySummary="true"/>-->
+<!--        </report>-->
+<!--    </coverage>-->
+
+    <extensions>
+        <bootstrap class="Valantic\ElasticaBridgeBundle\Tests\Extension\BootstrappedExtension"/>
+    </extensions>
+
+    <source>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </source>
+</phpunit>
